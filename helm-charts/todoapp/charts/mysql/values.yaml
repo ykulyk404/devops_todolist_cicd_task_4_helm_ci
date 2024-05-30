@@ -19,11 +19,3 @@ resources:
   limits:
     cpu: 500m
     memory: 1Gi
-
-affinity:
-  key: "app"
-  value: "mysql"
-
-tolerations:
-  key: "app"
-  value: "mysql"

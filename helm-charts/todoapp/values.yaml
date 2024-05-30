@@ -12,9 +12,6 @@ todoapp:
       memory: "256Mi"
       cpu: "150m"
 
-  configs:
-    PYTHONUNBUFFERED: "1"
-
   secret:
     SECRET_KEY: QGUyKHl4KXYmdGdoM19zPTB5amEtaSFkcGVieHN6XmRnNDd4KS1rJmtxXzN6Zio5ZSoK
     DB_NAME: "YXBwX2RiCg=="
