@@ -32,10 +32,15 @@ Now you can browse the [API](http://localhost:8000/api/) or start on the [landin
 Extend a GitHub Actions workflow for this project with a Docker build and push to the DockerHub Registry.
 Docker CI Job Requirements:
 
-1. Add `docker-ci` job to the workflow.
-2. Job should include the following steps:
-    1. Login to the DockerHub Registry.
-    1. Build and Push Docker image to your existing the DockerHub Registry with a tag of current's commit hash.
-    1. Use the provided Dockerfile to build the image.
-3. Create a Pull Request with the changes.
-4. Pull Requests description should also contain a reference to a workflow run with successfull Docker CI job.
+1. Update your forked repository with your DockerHub username and password.
+2. Update DockerImageName with your DockerHub image repository name
+3. Add `helm-ci` job to the workflow.
+4. Repository should be checkedout only once per workflow run
+5. New Job should include the following steps:
+    1. Download helm artifacts
+    1. Execute `helm template` for the chart
+    1. Execute `helm lint` for the chart
+    1. Package the chart
+    1. Upload the chart to the GitHub artifacts
+6. Create a Pull Request with the changes.
+7. Pull Requests description should also contain a reference to a workflow run with successfull Docker CI job.
