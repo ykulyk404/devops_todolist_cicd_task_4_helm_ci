@@ -1,4 +1,4 @@
-# Django ToDo list
+# Django ToDo list 
 
 This is a todo list web application with basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
 
