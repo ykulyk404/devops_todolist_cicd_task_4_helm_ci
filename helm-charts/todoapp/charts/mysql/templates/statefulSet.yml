@@ -18,11 +18,11 @@ spec:
       - name: {{ .Chart.Name }}
         image: {{ .Values.image.repo}}:{{ .Values.image.tag }}
         env:
-        {{- range $k, $v := .Values.secret }}
+        {{- range $k, $v := .Values.secrets }}
         - name: {{ $k }}
           valueFrom:
             secretKeyRef:
-              name: mysql-secrets
+              name: {{ $.Chart.Name }}-secrets
               key: {{ $k }}
         {{- end }}
         - name: MYSQL_DATABASE
@@ -43,18 +43,6 @@ spec:
           limits:
             cpu: {{ .Values.resources.limits.cpu }}
             memory: {{ .Values.resources.limits.memory }}
-        livenessProbe:
-          exec:
-            command: ["mysqladmin", "ping"]
-          initialDelaySeconds: 30
-          periodSeconds: 10
-          timeoutSeconds: 5
-        readinessProbe:
-          exec:
-            command: ["mysqladmin", "ping"]
-          initialDelaySeconds: 5
-          periodSeconds: 2
-          timeoutSeconds: 1
       volumes:
       - name: config-map
         configMap:
