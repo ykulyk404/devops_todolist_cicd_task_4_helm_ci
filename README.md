@@ -46,3 +46,5 @@ Docker CI Job Requirements:
     1. Upload the chart package to the GitHub artifacts
 6. Create a pull request with the changes.
 7. Pull requests description should also contain a reference to a workflow run with a successful Helm CI job.
+
+💡 **Please note:** use the `your_name` branch instead of the `main` branch for this task.
